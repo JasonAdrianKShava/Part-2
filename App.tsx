@@ -9,14 +9,14 @@ interface MenuItem {
   description: string;
   course: string;
   price: number;
-  imageUrl: any; // Change to 'any' since we are using local images
+  imageUrl: any; 
 }
 
 const App = () => {
   const [dishName, setDishName] = useState<string>('');
   const [description, setDescription] = useState<string>('');
   const [course, setCourse] = useState<string>('Starters');
-  const [price, setPrice] = useState<string>('');  // Price is entered as a string
+  const [price, setPrice] = useState<string>(''); 
   const [menuItems, setMenuItems] = useState<MenuItem[]>([
     {
       id: 1,
@@ -24,7 +24,7 @@ const App = () => {
       description: 'Succulent salmon with lemon butter sauce',
       course: 'Mains',
       price: 18.99,
-      imageUrl: require('./assets/images/grilled_salmon.avif'), // Use local image
+      imageUrl: require('./assets/images/grilled_salmon.avif'), 
     },
     {
       id: 2,
@@ -32,7 +32,7 @@ const App = () => {
       description: 'Classic Caesar with homemade dressing',
       course: 'Starters',
       price: 9.50,
-      imageUrl: require('./assets/images/caesar_salad.avif'), // Use local image
+      imageUrl: require('./assets/images/caesar_salad.avif'), 
     },
     {
       id: 3,
@@ -40,7 +40,7 @@ const App = () => {
       description: 'Rich and creamy soup with basil',
       course: 'Starters',
       price: 7.25,
-      imageUrl: require('./assets/images/tomato_soup.avif'), // Use local image
+      imageUrl: require('./assets/images/tomato_soup.avif'), 
     },
     {
       id: 4,
@@ -48,7 +48,7 @@ const App = () => {
       description: 'Spicy beef with fresh toppings',
       course: 'Mains',
       price: 12.00,
-      imageUrl: require('./assets/images/beef_tacos.avif'), // Use local image
+      imageUrl: require('./assets/images/beef_tacos.avif'), 
     },
     {
       id: 5,
@@ -56,28 +56,28 @@ const App = () => {
       description: 'Decadent cake with rich chocolate frosting',
       course: 'Desserts',
       price: 6.75,
-      imageUrl: require('./assets/images/chocolate_cake.avif'), // Use local image
+      imageUrl: require('./assets/images/chocolate_cake.avif'),
     }
-  ]);  // Pre-populated with meals
+  ]);  
 
-  // Function to add a new menu item
+  
   const addMenuItem = () => {
     const newItem: MenuItem = {
-      id: Date.now(),  // Unique ID based on timestamp
+      id: Date.now(),  
       dishName,
       description,
       course,
-      price: parseFloat(price),  // Convert price to a number
-      imageUrl: require('./assets/images/food.avif'), // Placeholder for now
+      price: parseFloat(price),  
+      imageUrl: require('./assets/images/food.avif'), 
     };
 
-    setMenuItems([...menuItems, newItem]);  // Add the new item to the list
-    setDishName('');  // Clear input fields after adding
+    setMenuItems([...menuItems, newItem]);  
+    setDishName('');  
     setDescription('');
     setPrice('');
   };
 
-  const totalMenuItems = menuItems.length;  // Count the number of items
+  const totalMenuItems = menuItems.length;  
 
   return (
     <View style={styles.container}>
@@ -107,7 +107,7 @@ const App = () => {
       {/* Course Picker */}
       <Picker
         selectedValue={course}
-        onValueChange={(itemValue: string) => setCourse(itemValue)}  // Explicitly typing itemValue
+        onValueChange={(itemValue: string) => setCourse(itemValue)} 
       >
         <Picker.Item label="Starters" value="Starters" />
         <Picker.Item label="Mains" value="Mains" />
@@ -130,7 +130,7 @@ const App = () => {
             <Text style={styles.itemText}>{item.dishName}</Text>
             <Text style={styles.itemText}>{item.description}</Text>
             <Text style={styles.itemText}>{item.course}</Text>
-            <Text style={styles.itemText}>${item.price.toFixed(2)}</Text>  {/* Show price in two decimals */}
+            <Text style={styles.itemText}>${item.price.toFixed(2)}</Text>  
           </View>
         )}
       />
@@ -138,7 +138,7 @@ const App = () => {
   );
 };
 
-// Styling for the app
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
